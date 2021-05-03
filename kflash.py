@@ -663,7 +663,7 @@ class KFlash:
                     c = self._port.read(1)
                     #sys.stdout.write(binascii.hexlify(c).decode())
                     sys.stdout.flush()
-                    if c == b'\xc0':
+                    if c == b'\xc0' and len(data) > 0:
                         break
 
                     elif in_escape:  # part-way through escape sequence
