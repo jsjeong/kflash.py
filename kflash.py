@@ -789,6 +789,7 @@ class KFlash:
                 time.sleep(0.1)
 
             def greeting(self):
+                self._port.reset_input_buffer()
                 self._port.write(b'\xc0\xc2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xc0')
                 op, reason, text = ISPResponse.parse(self.recv_one_return())
 
